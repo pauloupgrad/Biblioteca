@@ -1,2 +1,5 @@
 <?php
-echo '<h1>Bem-vindo olá mundo!</h1>';
+include "config.php";
+include "autoload.php";
+include "routes.php";
+
