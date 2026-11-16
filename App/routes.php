@@ -1,18 +1,20 @@
 <?php
 
-use App\Controller\AlunoController;
+use App\Controller\{AlunoController, HomeController};
 
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$base = '/Biblioteca/App/';
 
 switch ($url) {
-    case $base:
-        echo 'Página Inicial';
+    case BASE_URL:
+        HomeController::home();
         break;
-    case $base . 'aluno':
+    case BASE_URL . 'aluno':
         AlunoController::litar();
         break;
-    case $base . 'aluno/cadastro':
+    case BASE_URL . 'aluno/cadastro':
         AlunoController::cadastro();
+        break;
+    case BASE_URL . 'aluno/delete':
+        AlunoController::delete();
         break;
 }

@@ -2,9 +2,9 @@
 
 // Diretorio base
 define('BASE_DIR', dirname(__FILE__, 2));
-define('BASE_URL', dirname(__FILE__));
+define('BASE_URL', '/Biblioteca/App/');
 // Onde estao as views
-define('VIEWS', BASE_DIR . '/view');
+define('VIEWS', BASE_DIR . '/App/view');
 // Nome do Projeto
 define('TITLE', 'WG Biblioteca');
 // Acesso ao banco de dados

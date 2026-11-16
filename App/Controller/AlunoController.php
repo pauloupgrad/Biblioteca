@@ -1,23 +1,47 @@
 <?php
+
 namespace App\Controller;
 
 use App\Model\Aluno;
 
-final class AlunoController {
-    
-    public static function cadastro() : void {
-        $model = new Aluno();
-        //$model->id = 1;
-        $model->nome = 'Amanda';
-        $model->ra = 24536672;
-        $model->curso = 'Secretária';
-        $model->save();
-        echo 'Aluno cadastrado com Sucesso!';
+final class AlunoController
+{
+
+    public static function cadastro(): void
+    {
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $model = new Aluno();
+            $model->Id = !empty($_POST['id']) ? $_POST['id'] : null;
+            $model->Nome  = $_POST['nome'];
+            $model->RA    = $_POST['ra'];
+            $model->Curso = $_POST['curso'];
+            $model->save();
+
+            \header("Location: ".\BASE_URL."aluno");
+        } else {
+            $model = new Aluno();
+
+            if(isset($_GET['id'])){
+                $model = $model->getById((int) $_GET['id']);
+            }
+
+            include \VIEWS . '/Aluno/form_aluno.php';
+        }
     }
 
-    public static function litar() : void {      
+    public static function litar(): void
+    {
         $aluno = new Aluno;
         $lista = $aluno->getAllRows();
-        var_dump($lista);
+        include \VIEWS . '/Aluno/lista_aluno.php';
+    }
+
+    public static function delete() : void 
+    {
+        $aluno = new Aluno;
+        $aluno->delete((int) $_GET['id']);
+
+        \header("Location: ".\BASE_URL."aluno");
     }
 }
