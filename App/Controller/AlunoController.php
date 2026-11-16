@@ -4,11 +4,12 @@ namespace App\Controller;
 
 use App\Model\Aluno;
 
-final class AlunoController
+final class AlunoController extends Controller
 {
 
     public static function cadastro(): void
     {
+        parent::isProtected();
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $model = new Aluno();
@@ -18,30 +19,34 @@ final class AlunoController
             $model->Curso = $_POST['curso'];
             $model->save();
 
-            \header("Location: ".\BASE_URL."aluno");
+            \header("Location: " . \BASE_URL . "aluno");
         } else {
             $model = new Aluno();
 
-            if(isset($_GET['id'])){
+            if (isset($_GET['id'])) {
                 $model = $model->getById((int) $_GET['id']);
             }
-
+            
             include \VIEWS . '/Aluno/form_aluno.php';
         }
     }
 
     public static function litar(): void
     {
+        parent::isProtected();
+
         $aluno = new Aluno;
         $lista = $aluno->getAllRows();
         include \VIEWS . '/Aluno/lista_aluno.php';
     }
 
-    public static function delete() : void 
+    public static function delete(): void
     {
+        parent::isProtected();
+
         $aluno = new Aluno;
         $aluno->delete((int) $_GET['id']);
 
-        \header("Location: ".\BASE_URL."aluno");
+        \header("Location: " . \BASE_URL . "aluno");
     }
 }

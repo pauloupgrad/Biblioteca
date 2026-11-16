@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <?php include VIEWS . '/includes/menu.php'; ?>
+    <?php include VIEWS . '/Includes/menu.php'; ?>
     <?php /** @var array $lista */ ?>
     <div class="container mt-2">
         <div class="d-flex align-items-center justify-content-between py-3">

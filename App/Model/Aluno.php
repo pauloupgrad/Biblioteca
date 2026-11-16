@@ -15,14 +15,19 @@ final class Aluno
      * Declaração das propriedades conforme campos da tabela no banco de dados.
      * para saber mais sobre Propriedades de Classe, leia: https://www.php.net/manual/pt_BR/language.oop5.properties.php
      */
-    public $Id, $Nome, $RA, $Curso;
 
-    
+    public ?int $Id = null;
+    public ?string $Nome = null;
+    public ?int $RA = null;
+    public ?string $Curso = null;
+
+
+
     /**
      * Declaração do método save que chamará a DAO para gravar no banco de dados
      * o model preenchido.
      */
-    function save() : Aluno
+    function save(): Aluno
     {
         /**
          * Note que os objetos da classe AlunoDAO estão sendo criados de forma anônima.
@@ -39,7 +44,7 @@ final class Aluno
      * O método recebe um parâmetro do tipo inteiro que é o id do registro
      * a ser recuperado do MySQL, via camada DAO.
      */
-    function getById(int $id) : ?Aluno
+    function getById(int $id): ?Aluno
     {
         return new AlunoDAO()->selectById($id);
     }
@@ -50,7 +55,7 @@ final class Aluno
      * Esse método é importante pois como a model é "vista" na View a propriedade
      * $rows será acessada e possibilitará listar os registros vindos do banco de dados
      */
-    function getAllRows() : array
+    function getAllRows(): array
     {
         return new AlunoDAO()->select();
     }
@@ -61,7 +66,7 @@ final class Aluno
      * O método recebe um parâmetro do tipo inteiro que é o id do registro
      * que será excluido da tabela no MySQL, via camada DAO.
      */
-    function delete(int $id) : bool
+    function delete(int $id): bool
     {
         return new AlunoDAO()->delete($id);
     }

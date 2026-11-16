@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <?php include VIEWS . '/includes/menu.php'; ?>
+    <?php include VIEWS . '/Includes/menu.php'; ?>
     <?php /** @var null|\App\Model\Aluno $model */ ?>
     <div class="container">
         <h1>Formulário de Alunos</h1>

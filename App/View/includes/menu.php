@@ -22,7 +22,10 @@
                     <a class="nav-link" href="<?= BASE_URL ?>autores">Autores</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://www.youtube.com/watch?v=M1heGWaCEiQ&list=PLHVpcBDJr5dmL-5tYqBmf_PxJrtrdAMT6&index=5" target="_blank">Aula 5</a>
+                    <a class="nav-link" href="https://www.youtube.com/watch?v=oDkheZnwq4o&list=PLHVpcBDJr5dmL-5tYqBmf_PxJrtrdAMT6&index=7" target="_blank">Aula 7</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-danger btn-sm mt-1" href="<?= BASE_URL ?>logout">Sair</a>
                 </li>
             </ul>
         </div>

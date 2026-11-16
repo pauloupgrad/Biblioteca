@@ -2,12 +2,11 @@
 
 namespace App\Controller;
 
-
-
-final class HomeController 
+final class HomeController extends Controller
 {
-    public static function home()
+    public static function home() : void
     {
+        parent::isProtected();
         include \VIEWS.'/Home/home.php';
     }
 }
